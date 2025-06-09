@@ -7,32 +7,47 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <!-- Splash Screen -->
-   
   <div id="splash-screen">
+    <img src="84a83908-2dc9-4a2d-b9e7-5bdab82c015f.png" alt="Logo IA" width="20%">
     <h2>Carregando IA...</h2>
-    <img src="84a83908-2dc9-4a2d-b9e7-5bdab82c015f.png" alt="" width="20%">
   </div>
 
-  <h1>IA por Categoria</h1>
+  <div id="site" style="display: none;">
 
-  <div id="buttons-container">
-    <button onclick="showCategory('todas')">Todas</button>
-    <button onclick="showCategory('texto')">Texto / Escrita / Chatbots</button>
-    <button onclick="showCategory('imagem')">Imagem / Design / Arte</button>
-    <button onclick="showCategory('video')">Vídeo e Animação</button>
-    <button onclick="showCategory('audio')">Áudio / Música</button>
-    <button onclick="showCategory('programacao')">Programação / Desenvolvimento</button>
-    <button onclick="showCategory('marketing')">Marketing / SEO / Vendas</button>
-    <button onclick="showCategory('traducao')">Tradução / Linguagem</button>
-    <button onclick="showCategory('dados')">Dados / Análise / BI</button>
-    <button onclick="showCategory('educacao')">Educação / Tutoria</button>
-    <button onclick="showCategory('automacao')">Automação / Produtividade</button>
+    <header>
+
+      <div class="logo">
+        <img src="coruja.png" alt="Logo IA" />
+        </div>
+      <h2 class="header-title">IA Ideal</h2>
+      
+    </header>
+
+    <div id="buttons-container">
+      <button data-category="todas" class="active">Todas</button>
+      <button data-category="texto">Texto / Escrita / Chatbots</button>
+      <button data-category="imagem">Imagem / Design / Arte</button>
+      <button data-category="video">Vídeo e Animação</button>
+      <button data-category="audio">Áudio / Música</button>
+      <button data-category="programacao">Programação / Desenvolvimento</button>
+      <button data-category="marketing">Marketing / SEO / Vendas</button>
+      <button data-category="traducao">Tradução / Linguagem</button>
+      <button data-category="dados">Dados / Análise / BI</button>
+      <button data-category="educacao">Educação / Tutoria</button>
+      <button data-category="automacao">Automação / Produtividade</button>
+    </div>
+
+    <div id="main-content">
+      <h1>↓ Descubra sua IA ideal ↓</h1>
+      
+      <div id="cards-container"></div>
+    </div>
   </div>
-
-  <div id="cards-container"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
+

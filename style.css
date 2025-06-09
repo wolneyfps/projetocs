@@ -1,93 +1,159 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafd;
-  color: #333;
-  margin: 20px;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Splash Screen */
+#splash-screen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #2e1f47, #3b003b);
+  color: #e8f1f5;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-h1 {
-  color: #000000;
-  margin-bottom: 30px;
-  font-family: monospace;
-  font-size: 40px;
-}
-
-#buttons-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: left;
-  margin-bottom: 30px;
-  max-width: 900px;
-}
-
-#buttons-container button {
-  background-color: #3a9fbf;
-  border: none;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 5px rgb(58 159 191 / 0.4);
-  user-select: none;
-}
-
-#buttons-container button:hover {
-  background-color: #2a7a8c;
-}
-
-#cards-container {
-  max-width: 600px;
-  width: 100%;
-}
-
-.card {
-  border: 1px solid #82a0aa;
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
-  background-color: #e8f1f5;
-  box-shadow: 1px 2px 5px rgba(130, 160, 170, 0.3);
-  font-size: 1.1rem;
-  color: #204050;
-  user-select: none;
-}
-
-.card.main {
-  font-weight: 700;
-  color: #c94c4c;
-}
-
-#splash-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #2a7a8c;
-  color: white;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  transition: opacity 0.5s ease;
+  font-size: 40px;
+  font-family: monospace;
   z-index: 9999;
 }
 
-#splash-screen h2 {
-  animation: fadeIn 1s ease-in-out infinite alternate;
+/* Corpo da página */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #2e1f47, #3b003b);
+  color: #e8f1f5;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0.3;
-  }
-  to {
-    opacity: 1;
-  }
+/* Header fixo */
+header {
+  background-color: #2e1f47;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Logo */
+.logo img {
+  height: 80px;
+}
+
+/* Título */
+.header-title {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.profile-button:hover {
+  background-color: #00ccaa;
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+/* Barra lateral */
+#buttons-container {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background-color: #2e1f47;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  z-index: 900;
+}
+
+/* Botões da barra lateral */
+#buttons-container button {
+  background-color: #4b2e83;
+  border: none;
+  color: #e8f1f5;
+  padding: 12px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: left;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#buttons-container button:hover {
+  background-color: #00ffcc;
+  color: #1a1c2c;
+  font-weight: 600;
+}
+
+/* Botão ativo */
+#buttons-container button.active {
+  background-color: #00ffcc;
+  color: #1a1c2c;
+  font-weight: 700;
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+/* Conteúdo principal */
+#main-content {
+  margin-top: 100px;
+  margin-left: 260px;
+  padding: 30px 40px;
+  width: calc(100% - 260px);
+  display: none;
+  overflow-y: auto;
+}
+
+#main-content h1 {
+  color: #ffffff;
+  font-family: monospace;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Cards container */
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background-color: #82a0aa;
+  color: white;
+  padding: 18px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border-left: 5px solid #66ffcc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+/* Card principal */
+.card.main {
+  border-left-color: #ff8800;
+  font-weight: 600;
+}
+
+.card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
